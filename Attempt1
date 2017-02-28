@@ -1,0 +1,130 @@
+/*
+@Title:  Integration Circuit
+@Purpose:  To act as an intermediary between the 3d pritners 
+            and the Fanuc Robot Arm
+@authors:  Lauren Pontbriant, Alex Ruggiero, Kevin A. Valente-Comas
+*/
+
+//Imports
+
+//Pin Registers
+//Printer I/O ports
+const int p1i = ;
+const int p1o = ;
+const int p2i = ;
+const int p2o = ;
+const int p3i = ;
+const int p3o = ;
+//Relay output lines to Fanuc
+const int r1 = 13; //printer 1
+const int r2 = 12; //printer 2
+const int r3 = 11; //printer 3
+const int r4 = 10; //shelf 1
+const int r5 = 9; //sehlf 2
+const int r6 = 8; //shelf 3
+const int r7 = 7;
+const int r8 = 6;
+//Voltage Regulator input lines from Fanuc
+const int vr1 = ; //pickup() completion
+const int vr2 = ; //Replace() completion
+//Shelf sensor input Lines
+const int s1 = ;
+const int s2 = ;
+const int s3 = ;
+
+void setup() {
+    //set pinmode
+    pinMode(p1i, INPUT);
+    pinMode(p1o, OUTPUT);
+    pinMode(p2i, INPUT);
+    pinMode(p2o, OUTPUT);
+    pinMode(p3i, INPUT);
+    pinMode(p3o, OUTPUT);
+    pinMode(r1, OUTPUT);
+    pinMode(r2, OUTPUT);
+    pinMode(r3, OUTPUT);
+    pinMode(r4, OUTPUT);
+    pinMode(r5, OUTPUT);
+    pinMode(r6, OUTPUT);
+    //pinMode(r7, OUTPUT);
+    //pinMode(r8, OUTPUT);
+    pinMode(vr1, INPUT);
+    pinMode(vr2, INPUT);
+    pinMode(s1, INPUT);
+    pinMode(s2, INPUT);
+    pinMode(s3, INPUT);
+}
+
+void loop() {
+    /*
+    //If printer 1 signals
+    //if(digitalRead(p1i) == HIGH){ 
+        //PickUp(r1)
+        //Replace(r1)
+    }
+    //If printer 2 signals
+    else if(digitalRead(p2i) == HIGH){
+        //PickUp(r2)
+        //Replace(r2)
+    }
+    //If printer 3 signals
+    else if(digitalRead(p3i) == HIGH){
+        //PickUp(r3)
+        //Replace(r3)
+    }
+    delay (10);
+        */
+}
+
+//Function for pickup
+/*
+void PickUp(int pr){
+    //Tell Fanuc Printer pr is pickup over Relay number pr
+    digitalWrite(pr, HIGH);
+
+    //wait for signal from Fanuc for completion
+    while(digitalRead(vr1) == LOW){ delay(10); }
+    
+    //set output line back to 0
+    digitalWrite(pr, LOW);
+*/
+
+//Function for dropOff
+/*
+void Replace(int sr){
+    //Check which shelf has a replacement printbed
+    rep = ShelfN();
+    
+    //Tell Fanuc to which printer needs a replacement
+    digitalWrite(sr, HIGH);
+    
+    //wait for signal from Fanuc for completion
+     while(digitalRead(vr2) == LOW){ delay(10); }
+    
+    //set output line back to 0
+    digitalWrite(sr, LOW);
+    digitalWrite(r(1+rep), LOW);
+}
+*/
+
+//Function for Shelf
+/*
+int ShelfN(){
+    int n = 0;
+    while (n=0) {
+        if(digitalRead(s1)==HIGH) {//shelf1 is not empty
+            n = 1;
+            digitalWrite(r4, HIGH);
+        }
+        else if(digitalRead(s2)==HIGH) {//shelf2 is not empty
+            n = 2
+            digitalWrite(r5, HIGH);
+        }
+        else if(digitalRead(s3)==HIGH) {//shelf3 is not empty
+            n = 3;
+            digitalWrite(r6, HIGH);
+        }
+    }
+    return n;
+}
+*/
