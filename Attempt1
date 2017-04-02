@@ -15,22 +15,25 @@ const int p2i = ;
 const int p2o = ;
 const int p3i = ;
 const int p3o = ;
+
+
 //Relay output lines to Fanuc
+const int relay1 = //printer and shelf 1
 const int r1 = 13; //printer 1
 const int r2 = 12; //printer 2
 const int r3 = 11; //printer 3
 const int r4 = 10; //shelf 1
 const int r5 = 9; //sehlf 2
 const int r6 = 8; //shelf 3
-const int r7 = 7;
-const int r8 = 6;
+
 //Voltage Regulator input lines from Fanuc
 const int vr1 = ; //pickup() completion
 const int vr2 = ; //Replace() completion
-//Shelf sensor input Lines
-const int s1 = ;
-const int s2 = ;
-const int s3 = ;
+
+//Shelf limit switches
+const int s1 = 19;
+const int s2 = 20;
+const int s3 = 21;
 
 void setup() {
     //set pinmode
@@ -46,11 +49,13 @@ void setup() {
     pinMode(r4, OUTPUT);
     pinMode(r5, OUTPUT);
     pinMode(r6, OUTPUT);
-    //pinMode(r7, OUTPUT);
-    //pinMode(r8, OUTPUT);
+
     pinMode(vr1, INPUT);
     pinMode(vr2, INPUT);
-    pinMode(s1, INPUT);
+    pinMode(
+    
+    
+    , INPUT);
     pinMode(s2, INPUT);
     pinMode(s3, INPUT);
 }
