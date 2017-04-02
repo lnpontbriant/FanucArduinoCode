@@ -20,13 +20,13 @@ const int p3o = 12;
 const int p3i = 13;
 
 //Relay output lines to Fanuc
-const int relay1 = ; //printer 1 & Top Shelf
-const int relay2 = ; //printer 2 & Mid Shelf
-const int relay3 = ; //printer 3 & Bot SHelf
-const int relay4 = ; //Fanuc Signal
+const int relay1 = 7; //printer 1 & Top Shelf
+const int relay2 = 6; //printer 2 & Mid Shelf
+const int relay3 = 5; //printer 3 & Bot SHelf
+const int relay4 = 4; //Fanuc Signal
 
 //Voltage Regulator input lines from Fanuc
-const int fanucIn = ; //cycle completion
+const int fanucIn = 3; //cycle completion
 
 //Shelf limit switches
 const int s1 = 19;
