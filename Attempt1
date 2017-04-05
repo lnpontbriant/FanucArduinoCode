@@ -12,12 +12,12 @@
 
 //Pin Registers
 //Printer I/O ports
-const int p1o = 8;
-const int p1i = 9;
-const int p2o = 10;
-const int p2i = 11;
-const int p3o = 12;
-const int p3i = 13;
+const int p1i = 8;
+const int p1o = 9;
+const int p2i = 10;
+const int p2o = 11;
+const int p3i = 12;
+const int p3o = 13;
 
 //Relay output lines to Fanuc
 const int relay1 = 7; //printer 1 & Top Shelf
@@ -187,11 +187,11 @@ int ShelfN() {
 
 //Send Pulse Signal to Fanuc
 void SignalFanuc() {
-  digitalRead(relay4) == HIGH;
+  digitalWrite(relay4) == HIGH;
   for (int i, i < 15, i++) {
     Serial.print ("Signaling Fanuc");
   }
-  digitalRead(relay4) == LOW;
+  digitalWrite(relay4) == LOW;
 }
 
 //Send Signal back to Raspberry PI
