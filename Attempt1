@@ -60,20 +60,29 @@ void loop() {
   //If printer 1 signals
   if (digitalRead(p1i) == HIGH) {
     PickUp(1);
+    Serial.println("Removed printbed1");  
     Replace(1);
+    Serial.println("Replaced printbed1");
     CycleComplete(1);
+    Serial.println("Cycle1 complete");
   }
   //If printer 2 signals
   else if (digitalRead(p2i) == HIGH) {
     PickUp(2);
+    Serial.println("Removed printbed2");
     Replace(2);
+    Serial.println("Replaced printbed2");
     CycleComplete(2);
+     Serial.println("Cycle2 complete");
   }
   If printer 3 signals
   else if (digitalRead(p3i) == HIGH) {
     PickUp(3);
+    Serial.println("Removed printbed3");
     Replace(3);
+    Serial.println("Replaced printbed3");
     CycleComplete(3);
+     Serial.println("Cycle3 complete");
   }
   delay (10);
 
@@ -86,15 +95,19 @@ void PickUp(int pr) {
   //Tell Fanuc Printer pr is pickup over Relay number pr
   if (pr == 1)
     digitalWrite(relay1, HIGH);
+    Serial.print("Removing printer1");
   if (pr == 2)
     digitalWrite(relay2, HIGH);
+    Serial.println("Removing printer2");
   if (pr == 3)
     digitalWrite(relay3, HIGH);
+    Serial.println("Removing printer3");
   SignalFanuc();
   //wait for signal from Fanuc for completion
   while (digitalRead(fanucIn) == LOW) {
     delay(10);
   }
+  Serial.println("Signal Recieved");
   //set output line back to 0
   if (pr == 1)
     digitalWrite(relay1, LOW);
@@ -113,15 +126,19 @@ void Replace(int sr) {
   //Tell Fanuc which Shelf to pickup
   if (shelfN == 1)
     digitalWrite(relay1, HIGH);
+    Serial.println("Picking printbed1");
   if (shelfN == 2)
     digitalWrite(relay2, HIGH);
+    Serial.println("Picking printbed2");
   if (shelfN == 3)
     digitalWrite(relay3, HIGH);
+    Serial.println("Picking printbed3");
   SignalFanuc();
   //wait for signal from Fanuc for completion
   while (digitalRead(fanucIn) == LOW) {
     delay(10);
   }
+  Serial.println("Signal Recieved");
   //set output line back to 0
   if (shelfN == 1)
     digitalWrite(relay1, LOW);
